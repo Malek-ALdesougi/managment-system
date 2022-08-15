@@ -1,8 +1,8 @@
 
-function Employee(id, name, dep, level,salary, img) {
+function Employee(id, name, departments, level, salary, img) {
     this.id = id;
     this.fullName = name;
-    this.dep = dep;
+    this.departments = departments;
     this.level = level;
     this.img = img;
     this.salary = salary(level);
@@ -11,112 +11,178 @@ function Employee(id, name, dep, level,salary, img) {
     function salary(level) {
         switch (level) {
             case "Junior":
-                return Math.round(Math.random() * 500 + 500);
-                break;
-            case "Mid-Senior":
                 return Math.round(Math.random() * 500 + 1000);
-                break;
+                
+            case "Mid-Senior":
+                return Math.round(Math.random() * 1000 + 1500);
+
             case "Senior":
-                return Math.round(Math.random() * 500 + 150);
-                break;
+                return Math.round(Math.random() * 1500 + 2000);
         }
     }
-    this.print = function () {
-        return `Hello ${this.fullName} your salary is ${this.salary} JD`;
+    this.print1 = function () {
+        return `${this.fullName} ${this.salary} JD`;
     }
 }
 
 let employes = [
-    new Employee(1000, "Ghazi Samer", "Administration", "Senior"),
-    new Employee(1001, "Lana Ali", "Finance", "Senior"),
-    new Employee(1002, "Tamara Ayoub ", "Marketing", "Senior"),
-    new Employee(1003, "Safi Walid", "Administration", "Mid-Senior"),
-    new Employee(1004, "Omar Zaid", "Development", "Senior"),
-    new Employee(1005, "Rana Saleh", "Development", "Junior"),
-    new Employee(1006, "Ghazi Samer", "Finance", "Mid-Senior"),
+    new Employee(1000, "Ghazi Samer", "Administration", "Senior", "salary"),
+    new Employee(1001, "Lana Ali", "Finance", "Senior", "salary"),
+    new Employee(1002, "Tamara Ayoub ", "Marketing", "Senior", "salary"),
+    new Employee(1003, "Safi Walid", "Administration", "Mid-Senior", "salary"),
+    new Employee(1004, "Omar Zaid", "Development", "Senior", "salary"),
+    new Employee(1005, "Rana Saleh", "Development", "Junior", "salary"),
+    new Employee(1006, "Ghazi Samer", "Finance", "Mid-Senior", "salary"),
+    new Employee(1007, "Malek", "Developer", "Senior", "salary"),
+    new Employee(1008, "Mohammad", "Networking", "Senior", "salary"),
+
+    
 ]
 
+
 for (let i = 0; i < employes.length; i++) {
-    console.log(employes[i].print());
+    console.log(employes[i].print1());
 }
 
 
 
+// -------------------------------------------------call the main 
+
+let main = document.querySelector("main");
+
+// ------------------------------------------------create the table
+
+const tableEmployees = document.createElement("table"); 
+
+tableEmployees.textContent = "Employees Table !!"
+
+// append table to the main
+main.appendChild(tableEmployees);
+
+
+let tablebody = document.createElement("tbody");
+// append tbody to the tabel
+tableEmployees.appendChild(tablebody);
+
+
+let headRow = document.createElement("tr");
+// append table row to the tbody
+tablebody.appendChild(headRow);
+
+// ===============================================Table head 
+
+let tableData1 = document.createElement("th");
+tableData1.textContent = "Employee ID";
+// append th to the tr
+
+headRow.appendChild(tableData1);
+
+
+let tableData2 = document.createElement("th");
+tableData2.textContent = "Full Name";
+// append td th the tr
+
+headRow.appendChild(tableData2);
+
+let tableData3 = document.createElement("th");
+tableData3.textContent = "department";
+// append th to the tr
+
+headRow.appendChild(tableData3);
+
+let tableData4 = document.createElement("th");
+tableData4.textContent = "level";
+// append th to the tr
+
+headRow.appendChild(tableData4);
+
+let tableData5 = document.createElement("th");
+tableData5.textContent = "salary";
+// append th to the tr
+
+headRow.appendChild(tableData5);
+
+
+// ==================================================Rows makere function=================================================\\
+
+
+function newRow() {
+
+    for (let x = 0; x <= employes.length; x++) {
+
+        let newRow = document.createElement("tr");
+
+        // append the new row
+        tablebody.appendChild(newRow);
+
+
+        // -------------------------------------------------- ID
+        let emp1DataID = document.createElement("td");
+        emp1DataID.textContent = employes[x].id;
+        // append 
+        newRow.appendChild(emp1DataID);
+
+
+        // --------------------------------------------------Name
+        let emp1DataName = document.createElement("td");
+        emp1DataName.textContent = employes[x].fullName;
+        // append 
+        newRow.appendChild(emp1DataName);
+
+        
+        // --------------------------------------------------Department
+        let emp1DataDepartment = document.createElement("td");
+        emp1DataDepartment.textContent = employes[x].departments;
+        // append 
+        newRow.appendChild(emp1DataDepartment);
+
+
+         // ----------------------------------------------------Level
+        let emp1DataLevel = document.createElement("td");
+        emp1DataLevel.textContent = employes[x].level;
+        // append 
+        newRow.appendChild(emp1DataLevel);
+
+
+         // ---------------------------------------------------Salary
+        let emp1DataSalary = document.createElement("td");
+
+        emp1DataSalary.textContent = employes[x].salary;
+    
+        // append 
+        newRow.appendChild(emp1DataSalary);
+
+    }  
+
+}
+
+// Calling the function 
+
+newRow();
 
 
 
 
 
-// function Employee(employeeId, fullName, department, level, salary) {
+const htmlFooter = document.createElement("footer");
+let footerText = document.createElement("span");
 
-//     this.id = employeeId;
-//     this.fullName = fullName;
-//     this.department = department;
-//     this.level = level;
-//     this.salary = salary();
+document.body.appendChild(htmlFooter);
 
+// append text inside ther footer
 
+htmlFooter.appendChild(footerText);
 
-//     // if (level = "senior")
-//     //     console.log(salary(10, 15));
-//     // else if (level = "mid-senior")
-//     //     console.log(salary(15, 20));
-//     // else if (level= "junior")
-//     //     console.log(salary(20, 30));
-
-
-//     function salary(min, max) {
-
-//         if (level = "senior"){
-//         return Math.floor(Math.random() * (1500 - 2000));
-//         }
-
-//     else if (level = "mid-senior")
-//         {
-//             return Math.floor(Math.random() * (1000 - 1500));
-//         }
-//     else if (level= "junior"){
-//         return Math.floor(Math.random() * (500 - 1000));
-//     }
-
-//     else {
-//         return "this is not an employee !"
-//     }
-       
-//     }
-
-//     // console.log(salary(10,20));
+// footerText.textContent = "This is the footer";
 
 
 
 
-//     this.print = function () {
-//         return ` Hello i'm ${this.fullName} and my salary is ${this.salary}`;
-//     }
-
-// }
 
 
+// const div = document.createElement("div");
+// let p = document.createElement("p");
 
-// // senior 1500- 2000
-// // mid-senior 1000 - 1500
-// // junior 500 - 1000 
+// p.append("this is a para1");
 
-
-
-// let empArray = [
-
-//     new Employee(1000, "Ghazi samer", "Administrator", "senior"),
-//     new Employee(1001, "Lana Ali", "Finance", "senior"),
-//     new Employee(1002, "Tamara Ayoob", "Markiting", "senior"),
-//     new Employee(1003, "Safi Walid", "Administrator", "mid-senior"),
-//     new Employee(1004, "Omar Zaid", "Developer", "senior"),
-//     new Employee(1005, "Rana Saleh", "Administrator", "jonior"),
-//     new Employee(1006, "Hadi ahmad", "Finance", "mid-senior")
-// ];
-
-
-// for (let x = 0; x <= empArray.length; x++) {
-
-//     console.log(empArray[x].print());
-// }
+// div.appendChild(p);
