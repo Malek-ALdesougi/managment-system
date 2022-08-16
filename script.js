@@ -1,58 +1,19 @@
 
-function Employee(id, name, departments, level, salary, img) {
+function Employee(id, name, departments, empLevel, salary, img) {
     this.id = id;
     this.fullName = name;
     this.departments = departments;
-    this.level = level;
+    this.empLevel = empLevel;
     this.img = img;
-    this.salary = salary(level);
-
-
-    function salary(level) {
-        switch (level) {
-            case "Junior":
-                return Math.round(Math.random() * 500 + 1000);
-                
-            case "Mid-Senior":
-                return Math.round(Math.random() * 1000 + 1500);
-
-            case "Senior":
-                return Math.round(Math.random() * 1500 + 2000);
-        }
-    }
-    this.print1 = function () {
-        return `${this.fullName} ${this.salary} JD`;
-    }
+    this.salary = salary(empLevel);
 }
-
-let employes = [
-    new Employee(1000, "Ghazi Samer", "Administration", "Senior", "salary"),
-    new Employee(1001, "Lana Ali", "Finance", "Senior", "salary"),
-    new Employee(1002, "Tamara Ayoub ", "Marketing", "Senior", "salary"),
-    new Employee(1003, "Safi Walid", "Administration", "Mid-Senior", "salary"),
-    new Employee(1004, "Omar Zaid", "Development", "Senior", "salary"),
-    new Employee(1005, "Rana Saleh", "Development", "Junior", "salary"),
-    new Employee(1006, "Ghazi Samer", "Finance", "Mid-Senior", "salary"),
-    new Employee(1007, "Malek", "Developer", "Senior", "salary"),
-    new Employee(1008, "Mohammad", "Networking", "Senior", "salary"),
-
-    
-]
-
-
-for (let i = 0; i < employes.length; i++) {
-    console.log(employes[i].print1());
-}
-
-
-
 // -------------------------------------------------call the main 
 
 let main = document.querySelector("main");
 
 // ------------------------------------------------create the table
 
-const tableEmployees = document.createElement("table"); 
+const tableEmployees = document.createElement("table");
 
 tableEmployees.textContent = "Employees Table !!"
 
@@ -91,7 +52,7 @@ tableData3.textContent = "department";
 headRow.appendChild(tableData3);
 
 let tableData4 = document.createElement("th");
-tableData4.textContent = "level";
+tableData4.textContent = "empLevel";
 // append th to the tr
 
 headRow.appendChild(tableData4);
@@ -103,64 +64,82 @@ tableData5.textContent = "salary";
 headRow.appendChild(tableData5);
 
 
-// ==================================================Rows makere function=================================================\\
+let tableData6 = document.createElement("th");
+tableData6.textContent = "Image";
+// append th to the tr
+
+headRow.appendChild(tableData6);
 
 
-function newRow() {
+// ==================================================Table Rows makere function================================================= \\
 
-    for (let x = 0; x <= employes.length; x++) {
+document.getElementById("subBtn").onclick = function () {
 
-        let newRow = document.createElement("tr");
+    let newRow = document.createElement("tr");
 
-        // append the new row
-        tablebody.appendChild(newRow);
+    // append the new row
+    tablebody.appendChild(newRow);
 
+    // -------------------------------------------------- ID
+    let empId = document.createElement("td");
 
-        // -------------------------------------------------- ID
-        let emp1DataID = document.createElement("td");
-        emp1DataID.textContent = employes[x].id;
-        // append 
-        newRow.appendChild(emp1DataID);
-
-
-        // --------------------------------------------------Name
-        let emp1DataName = document.createElement("td");
-        emp1DataName.textContent = employes[x].fullName;
-        // append 
-        newRow.appendChild(emp1DataName);
-
-        
-        // --------------------------------------------------Department
-        let emp1DataDepartment = document.createElement("td");
-        emp1DataDepartment.textContent = employes[x].departments;
-        // append 
-        newRow.appendChild(emp1DataDepartment);
+    empId.textContent = document.getElementById("idInput1").value;
+    // append 
+    newRow.appendChild(empId);
 
 
-         // ----------------------------------------------------Level
-        let emp1DataLevel = document.createElement("td");
-        emp1DataLevel.textContent = employes[x].level;
-        // append 
-        newRow.appendChild(emp1DataLevel);
+    // --------------------------------------------------Name
+    let empName = document.createElement("td");
+    empName.textContent = document.getElementById("idInput2").value;
+    // append 
+    newRow.appendChild(empName);
+
+    // --------------------------------------------------Department
+    let empDepartment = document.createElement("td");
+    empDepartment.textContent = document.getElementById("idInput3").value;
+    // append 
+    newRow.appendChild(empDepartment);
+
+    // ----------------------------------------------------Level
+    let empLevel = document.createElement("td");
+    empLevel.textContent = document.getElementById("idInput4").value;
+    // append 
+    newRow.appendChild(empLevel);
 
 
-         // ---------------------------------------------------Salary
-        let emp1DataSalary = document.createElement("td");
+    // ---------------------------------------------------Salary
+    let empSalary = document.createElement("td");
 
-        emp1DataSalary.textContent = employes[x].salary;
-    
-        // append 
-        newRow.appendChild(emp1DataSalary);
+    if (empLevel === "Junior") {
+        empSalary.textContent = Math.floor(Math.random() * 1000) + 500;
+    }
+    else if (empLevel === "Mid-Senior") {
+        empSalary.textContent = Math.round(Math.random() * 1000 + 1500);
+    }
+    else (empLevel === "Senior")
+    empSalary.textContent = Math.round(Math.random() * 1500 + 2000);
 
-    }  
+    // append 
+    newRow.appendChild(empSalary);
 
+
+
+    // ----------------------------------------------------Level
+    let empImage = document.createElement("td");
+
+    // --- -----------------------------------------------taking user image function
+
+    document.getElementById('insert-btn').onclick = function () {
+        const val = document.getElementById('imageName').value;
+        const src = 'https://google.com/images/' + val + '.png';
+        let imgTag = document.createElement('img');
+        imgTag.src = src;
+        empImage.textContent.appendChild(imgTag);
+    }
+
+    // append 
+    newRow.appendChild(empImage);
 }
-
-// Calling the function 
-
-newRow();
-
-
 
 
 
@@ -176,13 +155,3 @@ htmlFooter.appendChild(footerText);
 // footerText.textContent = "This is the footer";
 
 
-
-
-
-
-// const div = document.createElement("div");
-// let p = document.createElement("p");
-
-// p.append("this is a para1");
-
-// div.appendChild(p);
