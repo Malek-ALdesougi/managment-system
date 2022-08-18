@@ -50,23 +50,23 @@
 
 
 
-        <form>
+        <form id="main-form">
             <fieldset>
                 <legend>Employees Form</legend>
 
 
                 <div class="w-25 p-2">
                     <label for="idInput" class="form-label">ID</label>
-                    <input type="text" class="form-control" id="idInput1">
+                    <input type="text" name="id" class="form-control" id="idInput1">
                 </div>
 
                 <div class="w-25 p-2">
                     <label for="idInput" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="idInput2" aria-describedby="emailHelp">
+                    <input type="text" name="fulName" class="form-control" id="idInput2" aria-describedby="emailHelp">
                 </div>
 
                 <div class="w-25 p-2">
-                    <select class="form-select" id="idInput3" aria-label="Default select example">
+                    <select class="form-select" name="department" id="idInput3" aria-label="Default select example">
                         <option selected>Choose your department</option>
                         <option value="Administration">Administration</option>
                         <option value="Marketing">Marketing</option>
@@ -76,18 +76,18 @@
                 </div>
 
                 <div class="w-25 p-2">
-                    <select class="form-select" id="idInput4" aria-label="Default select example">
+                    <select class="form-select" name="level" id="idInput4" aria-label="Default select example">
                         <option selected>Choose your level</option>
-                        <option value="Junior">Junior</option>
-                        <option value="Mid-senior">Mid-senior</option>
-                        <option value="Senior">Senior</option>
+                        <option value="junior">Junior</option>
+                        <option value="mid-senior">Mid-senior</option>
+                        <option value="senior">Senior</option>
 
                     </select>
                 </div>
 
                 <div class="w-25 p-2">
                     <label for="formFile" class="form-label">Image URL</label>
-                    <input class="form-control" type="text" id="imageName" placeholder="Past your image URL here" >
+                    <input class="form-control" type="text"  name="image" id="imageName" placeholder="Past your image URL here" >
                     <input type="button" id="insert-btn" value="Insert" />
                 </div>
 
@@ -96,7 +96,7 @@
                     <input type="text" value="helloworld" id="imageName" />
                 </div> -->
 
-                <button style="margin-left: 0.5% ;" type="button" class=" btn btn-primary" id="subBtn">Submit</button>
+                <button style="margin-left: 0.5% ;" type="submit" class=" btn btn-primary" id="subBtn">Submit</button>
 
 
 
@@ -106,20 +106,23 @@
 
         </form>
 
+        <div id="cards">
+
+        </div>
+
 
     </main>
 
 
+    <footer>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">visit</a></li>
+            <li><a href="#">contact</a></li>
 
-
-
-
-
-
-
-
-
-
+        </ul>
+    </footer>
 
     <script src="script.js"></script>
 
