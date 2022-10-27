@@ -1,122 +1,270 @@
 
-function Employee(id, name, dep, level,salary, img) {
-    this.id = id;
-    this.fullName = name;
-    this.dep = dep;
-    this.level = level;
-    this.img = img;
-    this.salary = salary(level);
+// function Employee(id, name, departments, empLevel, salary, img) {
+//     this.id = id;
+//     this.fullName = name;
+//     this.departments = departments;
+//     this.empLevel = empLevel;
+//     this.img = img;
+//     this.salary = salary(empLevel);
+// }
+// // -------------------------------------------------call the main 
+
+// let main = document.querySelector("main");
+
+// // ------------------------------------------------create the table
+
+// const tableEmployees = document.createElement("table");
+
+// tableEmployees.textContent = "Employees Table !!"
+
+// // append table to the main
+// main.appendChild(tableEmployees);
 
 
-    function salary(level) {
-        switch (level) {
-            case "Junior":
-                return Math.round(Math.random() * 500 + 500);
-                break;
-            case "Mid-Senior":
-                return Math.round(Math.random() * 500 + 1000);
-                break;
-            case "Senior":
-                return Math.round(Math.random() * 500 + 150);
-                break;
-        }
-    }
-    this.print = function () {
-        return `Hello ${this.fullName} your salary is ${this.salary} JD`;
-    }
-}
-
-let employes = [
-    new Employee(1000, "Ghazi Samer", "Administration", "Senior"),
-    new Employee(1001, "Lana Ali", "Finance", "Senior"),
-    new Employee(1002, "Tamara Ayoub ", "Marketing", "Senior"),
-    new Employee(1003, "Safi Walid", "Administration", "Mid-Senior"),
-    new Employee(1004, "Omar Zaid", "Development", "Senior"),
-    new Employee(1005, "Rana Saleh", "Development", "Junior"),
-    new Employee(1006, "Ghazi Samer", "Finance", "Mid-Senior"),
-]
-
-for (let i = 0; i < employes.length; i++) {
-    console.log(employes[i].print());
-}
+// let tablebody = document.createElement("tbody");
+// // append tbody to the tabel
+// tableEmployees.appendChild(tablebody);
 
 
+// let headRow = document.createElement("tr");
+// // append table row to the tbody
+// tablebody.appendChild(headRow);
+
+// // ===============================================Table head 
+
+// let tableData1 = document.createElement("th");
+// tableData1.textContent = "Employee ID";
+// // append th to the tr
+
+// headRow.appendChild(tableData1);
+
+
+// let tableData2 = document.createElement("th");
+// tableData2.textContent = "Full Name";
+// // append td th the tr
+
+// headRow.appendChild(tableData2);
+
+// let tableData3 = document.createElement("th");
+// tableData3.textContent = "department";
+// // append th to the tr
+
+// headRow.appendChild(tableData3);
+
+// let tableData4 = document.createElement("th");
+// tableData4.textContent = "empLevel";
+// // append th to the tr
+
+// headRow.appendChild(tableData4);
+
+// let tableData5 = document.createElement("th");
+// tableData5.textContent = "salary";
+// // append th to the tr
+
+// headRow.appendChild(tableData5);
+
+
+// let tableData6 = document.createElement("th");
+// tableData6.textContent = "image";
+// // append th to the tr
+
+// headRow.appendChild(tableData6);
+
+
+// // ==================================================Table Rows makere function================================================= \\
+
+// document.getElementById("subBtn").onclick = function () {
+
+//     let newRow = document.createElement("tr");
+
+//     // append the new row
+//     tablebody.appendChild(newRow);
+
+//     // -------------------------------------------------- ID
+//     let empId = document.createElement("td");
+
+//     empId.textContent = document.getElementById("idInput1").value;
+//     // append 
+//     newRow.appendChild(empId);
+
+
+//     // --------------------------------------------------Name
+//     let empName = document.createElement("td");
+//     empName.textContent = document.getElementById("idInput2").value;
+//     // append 
+//     newRow.appendChild(empName);
+
+//     // --------------------------------------------------department
+//     let empDepartment = document.createElement("td");
+//     empDepartment.textContent = document.getElementById("idInput3").value;
+//     // append 
+//     newRow.appendChild(empDepartment);
+
+//     // ----------------------------------------------------Level
+//     let empLevel = document.createElement("td");
+//     empLevel.textContent = document.getElementById("idInput4").value;
+//     // append 
+//     newRow.appendChild(empLevel);
+
+
+//     // ---------------------------------------------------salary
+//     let empSalary = document.createElement("td");
+
+//     if (empLevel === "Junior") {
+//         empSalary.textContent = Math.floor(Math.random() * 1000) + 500;
+//     }
+//     else if (empLevel === "Mid-Senior") {
+//         empSalary.textContent = Math.round(Math.random() * 1000 + 1500);
+//     }
+//     else (empLevel === "Senior")
+//     empSalary.textContent = Math.round(Math.random() * 1500 + 2000);
+
+//     // append 
+//     newRow.appendChild(empSalary);
 
 
 
+//     // ----------------------------------------------------Level
+//     let empImage = document.createElement("td");
 
+//     // --- -----------------------------------------------taking user image function
 
-
-// function Employee(employeeId, fullName, department, level, salary) {
-
-//     this.id = employeeId;
-//     this.fullName = fullName;
-//     this.department = department;
-//     this.level = level;
-//     this.salary = salary();
-
-
-
-//     // if (level = "senior")
-//     //     console.log(salary(10, 15));
-//     // else if (level = "mid-senior")
-//     //     console.log(salary(15, 20));
-//     // else if (level= "junior")
-//     //     console.log(salary(20, 30));
-
-
-//     function salary(min, max) {
-
-//         if (level = "senior"){
-//         return Math.floor(Math.random() * (1500 - 2000));
-//         }
-
-//     else if (level = "mid-senior")
-//         {
-//             return Math.floor(Math.random() * (1000 - 1500));
-//         }
-//     else if (level= "junior"){
-//         return Math.floor(Math.random() * (500 - 1000));
+//     document.getElementById('insert-btn').onclick = function () {
+//         const val = document.getElementById('imageName').value;
+//         const src = 'https://google.com/images/' + val + '.png';
+//         let imgTag = document.createElement('img');
+//         imgTag.src = src;
+//         empImage.textContent.appendChild(imgTag);
 //     }
 
-//     else {
-//         return "this is not an employee !"
-//     }
-       
-//     }
-
-//     // console.log(salary(10,20));
-
-
-
-
-//     this.print = function () {
-//         return ` Hello i'm ${this.fullName} and my salary is ${this.salary}`;
-//     }
-
+//     // append 
+//     newRow.appendChild(empImage);
 // }
 
 
 
-// // senior 1500- 2000
-// // mid-senior 1000 - 1500
-// // junior 500 - 1000 
+// const htmlFooter = document.createElement("footer");
+// let footerText = document.createElement("span");
+
+// document.body.appendChild(htmlFooter);
+
+// // append text inside ther footer
+
+// htmlFooter.appendChild(footerText);
+
+// // footerText.textContent = "This is the footer";
+let form = document.getElementById("main-form");
+const cardsDiv = document.getElementById("cards");
+
+let allEmployees = [];
+
+let Employees = function (employeeId, fullName, department, Level, image) {
+
+    this.employeeId = employeeId;
+    this.fullName = fullName;
+    this.department = department;
+    this.level = Level;
+    this.image = image;
+    this.salary = this.calcSalary(Level);
+}
+
+Employees.prototype.calcSalary = function (level) {
+
+    switch (level) {
+
+        case "junior":
+            return Math.round(Math.random() * (500 - 1000) + 1000);
+            break;
+
+        case "mid-senior":
+            return Math.round(Math.random() * (1000 - 1500) + 1500);
+            break;
+
+        case "senior":
+            return Math.round(Math.random() * (1500 - 2000) + 2000);
+            break;
+    }
+}
 
 
 
-// let empArray = [
-
-//     new Employee(1000, "Ghazi samer", "Administrator", "senior"),
-//     new Employee(1001, "Lana Ali", "Finance", "senior"),
-//     new Employee(1002, "Tamara Ayoob", "Markiting", "senior"),
-//     new Employee(1003, "Safi Walid", "Administrator", "mid-senior"),
-//     new Employee(1004, "Omar Zaid", "Developer", "senior"),
-//     new Employee(1005, "Rana Saleh", "Administrator", "jonior"),
-//     new Employee(1006, "Hadi ahmad", "Finance", "mid-senior")
-// ];
+let emp1 = new Employees("1000", "malek saleh", "developer", "mid-senior", "hghhh")
+console.log(emp1.salary);
 
 
-// for (let x = 0; x <= empArray.length; x++) {
+function render(event) {
+    
+    event.preventDefault();
 
-//     console.log(empArray[x].print());
-// }
+    let id = event.target.id.value;
+    let fulName = event.target.fulName.value;
+    let department = event.target.department.value;
+    let level = event.target.level.value;
+    let image = event.target.image.value;
+
+    let newEmp = new Employees(id, fulName, department, level, image);
+
+    allEmployees.push(newEmp);
+
+    sendToLocal()
+    
+    print(newEmp);
+    console.log(newEmp);
+
+    document.getElementById("main-form").reset();
+}
+
+form.addEventListener('submit', render);
+
+function print(employee){
+
+    let card = document.createElement("div");
+    cardsDiv.appendChild(card);
+
+    let cardImage = document.createElement("img")
+    cardImage.setAttribute("src", employee.image );
+    
+    card.appendChild(cardImage);
+
+    let para1 = document.createElement("p");
+    para1.textContent =  `Name : ${employee.fulName} - ID : ${employee.id}`;
+    card.appendChild(para1);
+
+    let para2 = document.createElement("p");
+    para2.textContent =  `Depatrment : ${employee.department} - Level : ${employee.level}`;
+    card.appendChild(para2);
+
+    let para3 = document.createElement("p");
+    para3.textContent =  `Salary : ${employee.salary}`;
+    card.appendChild(para3);
+
+}
+// this function used to convert the array to a string using JSON.Stringfy
+// after that we push this array to the local storage
+function sendToLocal(){
+
+    let stringArray = JSON.stringify(allEmployees);
+    localStorage.setItem("employees", stringArray);
+}
+
+// when we make a refresh to the page all data and div will be gone 
+// so we need to make anothr fuction to read the data from local stoarge each time the page refresh 
+// and present these cards again in the page
+
+function getFromLocal(){
+    let JSONArray = localStorage.getItem("employees");
+
+    let objectArray = JSON.parse(JSONArray);
+
+    objectArray.forEach((ele) => {
+        print(ele);
+    })
+
+    console.log(objectArray);
+}
+
+
+
+
+
+
